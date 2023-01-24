@@ -19,7 +19,13 @@ export default function Home() {
       <ul>
       <Link href={"/products"}><li>Products</li></Link>
       </ul>
-    </div>
+      <ul>
+      <Link href={"/users"}><li>Users</li></Link>
+      </ul>
+
+      <ul>
+      <Link href={"/posts"}><li>Posts</li></Link>
+      </ul>    </div>
       
     </>
   )
