@@ -27,7 +27,10 @@ export default function Home() {
       <Link href={"/posts"}><li>Posts</li></Link>
       </ul>
       <ul>
-      <Link href={"/postJson"}><li>Post Json</li></Link>
+      <Link href={"/postJson"}><li>Post Json Static</li></Link>
+      </ul>
+      <ul>
+      <Link href={"/ssrNews"}><li>Post Json SSR</li></Link>
       </ul>
           </div>
       
