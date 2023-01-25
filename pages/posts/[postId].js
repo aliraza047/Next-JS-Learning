@@ -1,6 +1,12 @@
-import React from 'react'
+import { useRouter } from "next/router"
 
-function Post({ post }) {
+function SinglePost({ post }) {
+    console.log('post =>',post)
+    const router = useRouter()
+    if(router.isFallback) {
+        return <h1>Loading....</h1>
+    }
+
     return (
         <>
             <h2>{post.title}</h2>
@@ -8,31 +14,31 @@ function Post({ post }) {
         </>
     )
 }
-export default Post
+export default SinglePost
 
 export async function getStaticPaths() {
-    const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
-    const postJson = await posts.json()
+    // const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
+    // const postJson = await posts.json()
 
-    const paths = postJson.map(post => {
-        return {
-            params : { postId: `${post.id}`}
-        }
-    })
+    // const paths = postJson.map(post => {
+    //     return {
+    //         params : { postId: `${post.id}`}
+    //     }
+    // })
     return {
-        // paths: [
-        //     {
-        //         params: {postId: '1'}
-        //     },
-        //     {
-        //         params: {postId: '2'}
-        //     },
-        //     {
-        //         params: {postId: '3'}
-        //     }
-        // ],
-        paths,
-        fallback: false
+        paths: [
+            {
+                params: {postId: '1'}
+            },
+            {
+                params: {postId: '2'}
+            },
+            {
+                params: {postId: '3'}
+            }
+        ],
+        // paths,
+        fallback: true
     }
 }
 
@@ -40,6 +46,14 @@ export async function getStaticProps(context) {
     const { params } = context
     const posts = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
     const postJson = await posts.json()
+
+    console.log('params.postId ==>', params.postId, postJson.id)
+
+    if(!postJson.id){
+        return {
+            notFound: true
+        }
+    }
 
     return {
         props: {
