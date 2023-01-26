@@ -32,6 +32,9 @@ export default function Home() {
       <ul>
       <Link href={"/ssrNews"}><li>Post Json SSR</li></Link>
       </ul>
+      <ul>
+      <Link href={"/postApi"}><li>Post Api</li></Link>
+      </ul>
           </div>
       
     </>
