@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/client'
 
 function Navbar() {
   const [session, loading] = useSession()
@@ -10,24 +10,24 @@ function Navbar() {
       </h1>
       <ul className={`main-nav ${!session && loading ? 'loading' : 'loaded'}`}>
         <li>
-          <Link href='/'>
+          <Link href='/' legacyBehavior>
             <a>Home</a>
           </Link>
         </li>
         <li>
-          <Link href='/dashboard'>
+          <Link href='/dashboard' legacyBehavior>
             <a>Dashboard</a>
           </Link>
         </li>
         <li>
-          <Link href='/blog'>
+          <Link href='/blog' legacyBehavior>
             <a>Blog</a>
           </Link>
         </li>
 
         {!loading && !session && (
           <li>
-            <Link href='/api/auth/signin'>
+            <Link href='/api/auth/signin' legacyBehavior>
               <a
                 onClick={e => {
                   e.preventDefault()
@@ -40,7 +40,7 @@ function Navbar() {
         )}
         {session && (
           <li>
-            <Link href='/api/auth/signout'>
+            <Link href='/api/auth/signout' legacyBehavior>
               <a
                 onClick={e => {
                   e.preventDefault()
