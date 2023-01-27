@@ -1,4 +1,6 @@
 import { Provider } from 'next-auth/client'
+//for latest package update
+// import { useSession } from 'next-auth/react'
 import Navbar from '../component/Navbar/index'
 import '../styles/globals.css'
 import '../component/Navbar/style.css'
