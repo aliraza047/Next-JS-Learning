@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useSession } from 'next-auth/client'
+//for latest package update
 // import { useSession } from 'next-auth/react'
 
 export default function Home() {
