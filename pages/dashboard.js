@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getSession, signIn } from 'next-auth/client'
-
+//for latest package update
+// import { getSession,useSession } from 'next-auth/react'
 function Dashboard() {
   const [loading, setLoading] = useState(true)
 

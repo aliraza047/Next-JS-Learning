@@ -1,5 +1,6 @@
 import { getSession, useSession } from 'next-auth/client'
-
+//for latest package update
+// import { getSession,useSession } from 'next-auth/react'
 function Blog({ data }) {
   const [session] = useSession()
   console.log({ session })
